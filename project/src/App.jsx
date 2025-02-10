@@ -12,7 +12,6 @@ import Classes from './components/Classes';
 import Membership from './components/Membership';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Settings from './components/admin/Settings';
 import AdminLogin from './components/auth/AdminLogin';
 import ProtectedRoute from './components/ProtectedRoute';
 import DashboardLayout from './components/DashboardLayout';
@@ -24,6 +23,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import MClasses from './pages/MClasses';
 import DMembership from './pages/DMembership';
+import Settings from './pages/Settings';
 
 function App() {
   return (

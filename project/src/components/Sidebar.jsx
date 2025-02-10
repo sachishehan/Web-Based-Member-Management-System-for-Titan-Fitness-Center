@@ -16,7 +16,7 @@ function Sidebar({ onClose }) {
     { path: '/member/workout-progress',  label: 'Workout Progress' },
     { path: '/member/classes',  label: 'Classes & Bookings' },
     { path: '/member/fitness-goals',  label: 'Fitness Goals' },
-    { path: '/member/membership', label: 'Membership Details' },
+    { path: '/member/dMember', label: 'Membership Details' },
     { path: '/member/settings', label: 'Settings' }
   ]
 

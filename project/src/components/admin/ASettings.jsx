@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { FaBuilding, FaEnvelope, FaPhone, FaGlobe, FaCog, FaBell, FaPalette, FaUserPlus } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import CreateAdmin from './CreateAdmin';
 
-function Settings() {
+function ASettings() {
   const [generalSettings, setGeneralSettings] = useState({
     gymName: 'Titan Fitness',
     email: 'info@titanfitness.com',
@@ -429,4 +430,4 @@ function Settings() {
   );
 }
 
-export default Settings;
+export default ASettings;
