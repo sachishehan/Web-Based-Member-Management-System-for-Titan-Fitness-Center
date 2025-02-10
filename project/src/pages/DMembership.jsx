@@ -1,4 +1,4 @@
-function Membership() {
+function DMembership() {
   const membershipDetails = {
     plan: 'Premium',
     startDate: '2024-01-01',
@@ -71,4 +71,4 @@ function Membership() {
   )
 }
 
-export default Membership
+export default DMembership

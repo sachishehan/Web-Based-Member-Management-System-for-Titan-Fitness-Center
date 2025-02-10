@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../contexts/AuthContext'
 
 function SignIn() {
   const [memberId, setMemberId] = useState('')
@@ -12,13 +12,18 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const user = await login(memberId, password);
-      console.log('Logged in user:', user);
-     navigate('/dashboard');
-    } catch (err) {
-      console.error('Login error:', err.message);
+      const user = await login(memberId, password)
+      if (user.isFirstLogin) {
+        toast.info('Please change your temporary password.')
+        navigate('/reset-password')
+      } else {
+        navigate('/member/dashboard')
+        toast.success('Successfully logged in!')
+      }
+    } catch (error) {
+      toast.error(error.message)
     }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex flex-col justify-center py-12 sm:px-6 lg:px-8">

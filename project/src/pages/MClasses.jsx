@@ -1,4 +1,4 @@
-function Classes() {
+function MClasses() {
   const availableClasses = [
     { name: 'Yoga Flow', trainer: 'Sarah Smith', time: '9:00 AM', duration: '60 min', spots: 5 },
     { name: 'HIIT Training', trainer: 'Mike Johnson', time: '10:30 AM', duration: '45 min', spots: 3 },
@@ -37,4 +37,4 @@ function Classes() {
   )
 }
 
-export default Classes
+export default MClasses

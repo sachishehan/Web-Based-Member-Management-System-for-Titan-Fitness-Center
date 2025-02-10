@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../contexts/AuthContext'
 
 function ResetPassword() {
   const [currentPassword, setCurrentPassword] = useState('')
