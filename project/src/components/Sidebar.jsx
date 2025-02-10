@@ -1,7 +1,8 @@
-import { useAuth } from '../context/AuthContext'
+/* eslint-disable react/prop-types */
+import { useAuth } from '../contexts/AuthContext'
 import { useNavigate, NavLink } from 'react-router-dom'
 
-function Sidebar() {
+function Sidebar({ onClose }) {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
 
@@ -11,16 +12,22 @@ function Sidebar() {
   }
 
   const navItems = [
-    { path: '/dashboard', icon: 'dashboard', label: 'Dashboard' },
-    { path: '/workout-progress', icon: 'fitness_center', label: 'Workout Progress' },
-    { path: '/classes', icon: 'event', label: 'Classes & Bookings' },
-    { path: '/fitness-goals', icon: 'track_changes', label: 'Fitness Goals' },
-    { path: '/membership', icon: 'card_membership', label: 'Membership Details' },
-    { path: '/settings', icon: 'settings', label: 'Settings' }
+    { path: '/member/dashboard',  label: 'Dashboard' },
+    { path: '/member/workout-progress',  label: 'Workout Progress' },
+    { path: '/member/classes',  label: 'Classes & Bookings' },
+    { path: '/member/fitness-goals',  label: 'Fitness Goals' },
+    { path: '/member/membership', label: 'Membership Details' },
+    { path: '/member/settings', label: 'Settings' }
   ]
 
+  const handleNavClick = () => {
+    if (onClose) {
+      onClose()
+    }
+  }
+
   return (
-    <div className="w-64 h-screen bg-white border-r border-gray-200 fixed left-0 top-0">
+    <div className="w-64 h-full bg-white border-r border-gray-200 flex flex-col">
       <div className="p-6">
         <h1 className="text-2xl font-bold text-primary">Titan Fitness</h1>
       </div>
@@ -43,11 +50,12 @@ function Sidebar() {
         </div>
       </div>
 
-      <nav className="p-6 space-y-2">
+      <nav className="flex-1 p-6 space-y-2 overflow-y-auto">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
+            onClick={handleNavClick}
             className={({ isActive }) =>
               `flex items-center space-x-3 rounded-lg p-3 ${
                 isActive
@@ -62,13 +70,12 @@ function Sidebar() {
         ))}
       </nav>
 
-      <div className="absolute bottom-0 left-0 right-0 p-6">
+      <div className="p-6 border-t border-gray-200">
         <button
           onClick={handleLogout}
-          className="w-full flex items-center justify-center space-x-2 text-red-600 hover:bg-red-50 rounded-lg p-3"
+          className="flex items-center justify-center space-x-2 text-red-600 hover:bg-red-50 rounded-lg p-3 w-full"
         >
           <span className="material-icons">logout</span>
-          <span>Logout</span>
         </button>
       </div>
     </div>
