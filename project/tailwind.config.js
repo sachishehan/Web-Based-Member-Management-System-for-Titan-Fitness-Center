@@ -2,16 +2,20 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         primary: '#007BFF',
-        'primary-dark': '#0056b3',
-        'text-gray': '#6C757D'
-      }
-    }
+        secondary: '#0056b3',
+        lightGray: '#6C757D',
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(to right, #007BFF, #0056b3)',
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 }
